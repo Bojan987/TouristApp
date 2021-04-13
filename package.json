@@ -1,0 +1,37 @@
+{
+  "name": "tourist",
+  "version": "1.0.0",
+  "description": "Bojans Tourist Project",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start:prod": "SET NODE_ENV=production&& nodemon backend/server",
+    "debug": "ndb backend/server.js"
+  },
+  "author": "Bojan Majmunovic",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^6.0.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-mongo-sanitize": "^2.0.2",
+    "express-rate-limit": "^5.2.6",
+    "helmet": "^4.4.1",
+    "hpp": "^0.2.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.19",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.5.0",
+    "sharp": "^0.27.2",
+    "slugify": "^1.4.7",
+    "stripe": "^8.137.0",
+    "validator": "^13.5.2",
+    "xss-clean": "^0.1.1"
+  }
+}
