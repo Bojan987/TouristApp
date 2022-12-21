@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './App.css'
+
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { Header } from "./Components/Header";
@@ -7,6 +7,8 @@ import { Footer } from "./Components/Footer";
 import { BookingPage } from "./Pages/BookingPage";
 import { HomePage } from "./Pages/HomePage";
 import TourPage from './Pages/TourPage'
+import LoginPage from "./Pages/LoginPage";
+
 function App() {
   const [user, setUser] = useState({email:'',password:'',confirmPassword:''});
   // const [session,setSession] = useState({})
@@ -54,15 +56,15 @@ function App() {
   return (
     <Router>
       <Header/>
-      <main className="py-3">
-        <Container>
+      <main>
+        
           <Route path="/placeorder" component={BookingPage} />
-          <Route path="/login">
+          <Route path="/login" component={LoginPage}>
             
           </Route>
           <Route path="/" component={HomePage} exact />
           <Route path='/tour/:id' component={TourPage} />
-        </Container>
+        
       </main>
       <Footer />
     </Router>

@@ -7,13 +7,18 @@ export const getToken = () => {
    return data
  }
 
-axios.defaults.baseURL = "http://localhost:3000";
+// axios.defaults.baseURL = "http://localhost:3000";
+
 export const allTours = ()=>{
    return axios.get('/api/v1/tours')
 }
 
 export const login =(data)=>{
    return axios.post('/api/v1/users/login',data)
+}
+
+export const getMe =()=>{
+   return axios.get('/api/v1/users/me')
 }
 
 export const payment = ()=>{

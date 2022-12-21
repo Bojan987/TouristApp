@@ -22,7 +22,7 @@ const signToken = id => {
         Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
       ),
       httpOnly: true,
-      sameSite: "Lax"
+      sameSite: "none"
     };
     if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
   
@@ -83,9 +83,9 @@ const signToken = id => {
   };
   
   exports.protect = catchAsync(async (req, res, next) => {
-    // 1) Getting token and check of it's there
+    // 1) Getting token and check if it's there
     let token;
-    console.log(req.headers.authorization)
+    
     if (
       req.headers.authorization &&
       req.headers.authorization.startsWith('Bearer')
@@ -100,7 +100,7 @@ const signToken = id => {
         new AppError('You are not logged in! Please log in to get access.', 401)
       );
     }
-  
+    console.log(token)
     // 2) Verification token
     const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
   

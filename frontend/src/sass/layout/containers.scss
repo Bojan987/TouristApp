@@ -1,0 +1,22 @@
+
+.wrap-container {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+    @include respond(phone) {
+      // width < 900?
+      padding: 0;
+    }
+}
+
+main{
+  min-height: 95vh;
+}
+
+
+
+
+

@@ -1,0 +1,81 @@
+
+.notification {
+  display: flex;
+  position: absolute;
+  justify-content:center;
+  align-items: center;
+  top: 7rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  
+  &__content {
+    width: 28rem;
+    height: 5rem;
+    background: rgba(3, 202, 169,0.4);
+    border-left: 0.8rem solid #07e0c3;
+    border-radius: 0.4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+  &__content.notification-show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  &__content.show {
+    animation: show_slide 1s ease forwards;
+  }
+  &__content.hide {
+    animation: hide_slide 1s ease forwards;
+  }
+  &__content .fa-check-circle {    
+    color: #424140;
+    font-size: 2.5rem;
+  }
+  &__content .notification__msg {
+    font-size: 1.6rem;
+    color: #161513;
+    letter-spacing: 0.1rem;
+    font-weight: 400;
+    
+  }
+}
+
+@include respond(phone){
+    .notification{
+        left:53%;
+    }
+}
+
+@keyframes hide_slide {
+  0% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(0%);
+  }
+  80% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}
+@keyframes show_slide {
+  0% {
+    transform: translateX(150%);
+  }
+  40% {
+    transform: translateX(-10%);
+  }
+  80% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
